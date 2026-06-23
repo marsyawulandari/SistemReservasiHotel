@@ -42,7 +42,7 @@ Fitur di bawah ini diambil langsung dari menu yang tersedia pada `HotelReservasi
 ## 📁 Struktur Repository
 
 ```
-SRH-2/
+SistemReservasiHotel-D/
 ├── Hotel.java                     # Class Hotel + 2 custom exception
 ├── HotelReservasi.java            # Main class (entry point) + 1 custom exception
 ├── Kamar.java                     # Abstract class Kamar + 3 subclass kamar
