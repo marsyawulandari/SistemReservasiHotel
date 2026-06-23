@@ -1,8 +1,5 @@
 # 🏨 Sistem Reservasi Hotel Berbasis OOP (Java)
 
-> Proyek UAS Mata Kuliah **Pemrograman Berorientasi Objek (PBO)**
-> Aplikasi *console-based* untuk simulasi pengelolaan kamar dan reservasi hotel menggunakan Java murni.
-
 ---
 
 ## 📌 Deskripsi Proyek
@@ -44,8 +41,6 @@ Fitur di bawah ini diambil langsung dari menu yang tersedia pada `HotelReservasi
 
 ## 📁 Struktur Repository
 
-Struktur berikut adalah struktur **apa adanya** dari source code yang dianalisis (flat structure, tanpa folder `src`, tanpa file build seperti `pom.xml`/`build.gradle`, dan **tanpa deklarasi `package`** sama sekali pada seluruh file `.java`):
-
 ```
 SRH-2/
 ├── Hotel.java                     # Class Hotel + 2 custom exception
@@ -58,8 +53,6 @@ SRH-2/
 ├── Reservasi.java                 # Class Reservasi + 2 custom exception (termasuk base exception)
 └── Tamu.java                      # Class Tamu
 ```
-
-> **Catatan struktur:** Karena seluruh file berada dalam *default package* (tidak ada `package` statement), kompilasi dapat dilakukan langsung dengan `javac *.java` pada satu folder yang sama. Untuk kebutuhan submission GitHub, disarankan menambahkan `README.md` (sudah dibuat di dokumen ini) dan opsional `.gitignore` untuk mengecualikan file hasil kompilasi (`*.class`).
 
 ## 🧩 Penjelasan Setiap Class
 
@@ -172,10 +165,10 @@ Contoh berikut adalah **hasil eksekusi nyata** program (telah diuji dengan `java
 **Membuat reservasi baru + pembayaran tunai (Menu 1):**
 ```
 --- RESERVASI BARU ---
-  Nama Tamu       : Budi Santoso
+  Nama Tamu       : Marsya Wulandari
   No. KTP         : 3201xxxxxxxx001
   No. Telepon     : 081234567890
-  Email           : budi@email.com
+  Email           : marsyawdd@email.com
   Pilih No. Kamar : 201
   Check-in  (DD-MM-YYYY): 15-07-2026
   Check-out (DD-MM-YYYY): 17-07-2026
@@ -189,7 +182,7 @@ Contoh berikut adalah **hasil eksekusi nyata** program (telah diuji dengan `java
   Status         : Aktif
 ---------------------------------------------------------
   DATA TAMU
-  Nama: Budi Santoso | KTP: 3201xxxxxxxx001 | Telp: 081234567890 | Email: budi@email.com
+  Nama: Marsya Wulandari | KTP: 3201xxxxxxxx001 | Telp: 081234567890 | Email: marsyawdd@email.com
 ---------------------------------------------------------
   DETAIL KAMAR
   Kamar 201  | Lantai 2 | Deluxe     | Rp 650,000     /malam | [Dipesan]
@@ -237,7 +230,7 @@ Contoh berikut adalah **hasil eksekusi nyata** program (telah diuji dengan `java
 =========================================================
   SEMUA RESERVASI AKTIF -- Grand Nusantara Hotel
 =========================================================
-  [RSV-09ED2A7C] Siti Aminah | Kamar 101 | 2 malam | Rp 700,000
+  [RSV-09ED2A7C] Alia Cintia | Kamar 101 | 2 malam | Rp 700,000
 =========================================================
 ```
 
@@ -247,9 +240,10 @@ Contoh berikut adalah **hasil eksekusi nyata** program (telah diuji dengan `java
 
 | No | Nama Lengkap | NIM | Peran/Kontribusi |
 |----|--------------|-----|-------------------|
-| 1  | `[Nama Mahasiswa 1]` | `[NIM]` | `[contoh: Class Hotel, Kamar, dan subclass-nya]` |
-| 2  | `[Nama Mahasiswa 2]` | `[NIM]` | `[contoh: Class Pembayaran dan subclass-nya]` |
-| 3  | `[Nama Mahasiswa 3]` | `[NIM]` | `[contoh: Class Reservasi, Tamu, dan main program]` |
+| 1  | `[Marsya Wulandari]` | `[20251320054]` | `[ Class Hotel, Class HOtelReservasi, Class Reservasi ]` |
+| 2  | `[Alia Cintia Anjjali]` | `[20251320047]` | `[Class Kamar, Class Pembayaran, Pembayaran Tunai,]` |
+| 3  | `[Dela Salsabila]` | `[20251320046]` | `[ Class Pembayaran Transfer, Tamu]` |
+| 4  | `[Hesti Julia Rohmah]` | `[202513200467]` | `[ Class Pembayaran KartuKredit]` |
 
 ## 📝 Kesimpulan
 
@@ -257,15 +251,4 @@ Proyek **Sistem Reservasi Hotel Berbasis OOP** ini berhasil mengimplementasikan 
 
 Aplikasi ini berjalan stabil sebagai program CLI sederhana yang mensimulasikan alur bisnis hotel secara end-to-end: dari pencarian kamar, pembuatan reservasi, pemrosesan tiga metode pembayaran, hingga pencetakan tagihan, pengecekan, dan pembatalan reservasi — seluruhnya tervalidasi melalui eksekusi nyata program.
 
-### 💡 Saran Perbaikan Desain (Opsional, untuk pengembangan lanjutan)
-
-Beberapa catatan berikut ditemukan berdasarkan analisis kode dan dapat dijadikan bahan pengembangan, bukan merupakan kekurangan yang mengganggu fungsi utama aplikasi:
-
-1. **Urutan reservasi-pembayaran kurang ideal**: kamar langsung ditandai `tersedia = false` saat `buatReservasi()` dipanggil — *sebelum* pembayaran benar-benar selesai. Jika pembayaran tunai gagal (uang kurang) dan pengguna tidak melakukan percobaan ulang, kamar tetap terkunci sebagai "Dipesan" tanpa pembayaran tercatat dan tanpa reservasi otomatis dibatalkan.
-2. **Tidak ada persistensi data**: seluruh data (kamar, reservasi) disimpan di memori (`ArrayList`) dan hilang setiap program ditutup. Untuk pengembangan lanjutan dapat ditambahkan penyimpanan ke file atau database.
-3. **`InputTidakValidException` tidak konsisten dengan hierarki exception lain**: exception ini meng-extend `Exception` secara langsung, terpisah dari `HotelException`, sehingga sedikit memutus konsistensi desain hierarki custom exception yang sudah dibangun.
-4. **Tidak ada penggunaan interface**: abstraksi sudah baik melalui abstract class, namun penambahan interface (misalnya `Refundable` atau `Dapatdibatalkan`) dapat memperkaya demonstrasi konsep abstraksi multi-pewarisan perilaku.
-5. **Validasi data tamu minim**: format No. KTP, No. Telepon, dan Email tidak divalidasi formatnya (hanya dicek tidak kosong untuk Nama dan No. KTP).
-
 ---
-*Dokumentasi ini dihasilkan murni berdasarkan analisis langsung terhadap source code yang diunggah (9 file `.java`), dan telah diverifikasi melalui kompilasi (`javac`) serta eksekusi nyata (`java`) program.*
