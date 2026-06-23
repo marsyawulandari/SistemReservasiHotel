@@ -236,8 +236,6 @@ Contoh berikut adalah **hasil eksekusi nyata** program (telah diuji dengan `java
 
 ## 👥 Anggota Kelompok
 
-> Source code tidak memuat metadata nama anggota kelompok, sehingga tabel berikut disediakan sebagai **template kosong** yang wajib diisi oleh kelompok pengumpul sesuai data sebenarnya.
-
 | No | Nama Lengkap | NIM | Peran/Kontribusi |
 |----|--------------|-----|-------------------|
 | 1  | `[Marsya Wulandari]` | `[20251320054]` | `[ Class Hotel, Class HOtelReservasi, Class Reservasi ]` |
