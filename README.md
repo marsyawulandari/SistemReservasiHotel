@@ -241,7 +241,7 @@ Contoh berikut adalah **hasil eksekusi nyata** program (telah diuji dengan `java
 | 1  | `[Marsya Wulandari]` | `[20251320054]` | `[ Class Hotel, Class HOtelReservasi, Class Reservasi ]` |
 | 2  | `[Alia Cintia Anjjali]` | `[20251320047]` | `[Class Kamar, Class Pembayaran, Pembayaran Tunai,]` |
 | 3  | `[Dela Salsabila]` | `[20251320046]` | `[ Class Pembayaran Transfer, Tamu]` |
-| 4  | `[Hesti Julia Rohmah]` | `[202513200467]` | `[ Class Pembayaran KartuKredit]` |
+| 4  | `[Hesti Julia Rohmah]` | `[20251320067]` | `[ Class Pembayaran KartuKredit]` |
 
 ## 📝 Kesimpulan
 
